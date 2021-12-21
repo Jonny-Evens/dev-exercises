@@ -1,25 +1,81 @@
-//Daily Challenge//
+//exercise 1//
+ 
+// function changecolor(){
+//document. body.gettlementsByClassName ("appear")[0].classList.replace("appear", "show");
+//}
 
-let sentence = "The movie is not that bad, I like it";
-const sentenceArr = sentence.replaceAll(",", " ").split(" ");
-console.log(sentenceArr);
-const wordNot = sentenceArr.indexOf("not");
-console.log(wordNot);
-const wordBad = sentenceArr.indexOf("bad");
-console.log(wordBad);
-if (wordBad > wordNot) {
-  const spanDelete = wordBad - wordNot + 1;
-  sentenceArr.splice(wordNot, spanDelete, "good");
-  console.log(sentenceArr);
-  //three options to remove the extra space after 'good':
-  //option 1.
-  // commaIndex = sentenceArr.indexOf("");
-  // sentenceArr.splice(commaIndex, 1);
-  // console.log(sentenceArr);
-  // const finalString = sentenceArr.join(" ");
-  //option 2.
-  // const finalString = sentenceArr.join(" ").replace(/\s+/g, " ");//with this option I wasn't able to repace the extra space with a comma
-  //option 3. replaced the extra space with a comma
-  const finalString = sentenceArr.join(" ").replace("  ", ", ");
-  console.log(finalString);
-} else console.log(sentence);
+
+//setTimeout(changecolor, 2000);
+
+//exercise 2//
+
+//Let section = document.getElementById("appear")
+//let timeId = setInterval (1000) ;
+//console. Log(timeId),1;
+//let timeIdTwo = setInterval(addDiv, 3000) ;
+//console.log(timeIdTwo); //2
+
+//exercise XP//
+ //exercise 1
+
+ let element = document.getElementById("animate")
+ console.log(element)
+
+element.addEventListener("dragstart", startToDrag);
+element.addEventListener("dragend", startToDrag);
+
+function startToDrag (e) {
+	console.log('e.target : ', e.target)
+	console.log("starting");
+	e.target.classList.toggle("draggedItemAfter");
+	console.log('e.dataTransfer : ', e.dataTransfer)
+
+	e.dataTransfer.setData("text/plain", e.target.id);
+}
+
+function endToDrag (e) {
+console.log("ending");
+e.target.style.backgroundColor = 'lightgreen';
+}
+//done//
+
+//exercise 2//
+let element = document.getElementById("animate")
+element.setAttribute('draggable', "true");
+
+element.addEventListener("dragstart", function (event) {
+	event.target.style = "animate"
+	console.log("drag event.clientX", " event.clientY");
+});
+
+element.addEventListener("dragend", function(event))
+{
+  event.target.style = "container";
+  let _x = event.clientX;
+  let _y = event.clientY;
+  console.log(event);
+  event.target.style.left = _x + "px";
+  event.target.style.top = _y + "px";
+  event.target.style.position = "absolute";
+  console.log("dragend" + "X: " + event.clientX + " Y: " + event.clientY);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
